@@ -13,16 +13,18 @@ namespace FilterDemo.Filters
       _logger = logger;
     }
 
+    //We can Modify Result
+    //add customer response header etc
+
     public void OnResultExecuting(ResultExecutingContext context)
     {
       _startTime = DateTime.UtcNow;
 
-      // Log the type of result being executed
       _logger.LogInformation("OnResultExecuting: Executing result of type {ResultType} for action {ActionName}",
           context.Result.GetType().Name, context.ActionDescriptor.DisplayName);
 
-      // Modify the response header (Example: Add a custom header)
-      context.HttpContext.Response.Headers.Add("X-Custom-Header", "This is a custom header");
+      // Modify the response header
+      context.HttpContext.Response.Headers.Add("Custom-Header", "This is a custom header");
 
       // Optional: Modify the result (Example: Wrap the result in an additional object)
       if (context.Result is ObjectResult objectResult)
