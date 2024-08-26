@@ -9,6 +9,7 @@ public class CustomResourceFilter : IResourceFilter
   private readonly ILogger<CustomResourceFilter> _logger;
   private readonly IMemoryCache _cache;
 
+  // We cache the resource and load from cache if available
   public CustomResourceFilter(ILogger<CustomResourceFilter> logger, IMemoryCache cache)
   {
     _logger = logger;

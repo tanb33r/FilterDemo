@@ -6,8 +6,7 @@ using System.Diagnostics;
 
 namespace FilterDemo.Controllers
 {
-  [CustomResultFilter]
-  [ServiceFilter(typeof(CustomResultFilter))] // resource filter
+  [ServiceFilter(typeof(CustomResultFilter))] // result filter
   [ServiceFilter(typeof(CustomResourceFilter))] // resource filter
   public class HomeController : Controller
   {
